@@ -28,10 +28,10 @@ pip install -r requirements.txt
 * Flask架設API:[https://ar3s.dev/stock/getpic?file=](https://ar3s.dev/stock/getpic?file=) ，file=candle.png or fbx.png
 * Line message API
 ## line-bot介面
-
-![](https://i.imgur.com/EO0UiEP.jpg )
-![](https://i.imgur.com/4IdWGCL.jpg )
-
+<p style="float:left">
+<img src="https://i.imgur.com/EO0UiEP.jpg" alt="first" height="500" width="300" >
+<img src="https://i.imgur.com/4IdWGCL.jpg" alt="first" height="500" width="300" >
+</p>
 
 ## stock.py功能講解
 1. flask架設
@@ -91,8 +91,7 @@ def callback():
 ```
 
 
-
-![](https://i.imgur.com/T59Ttdg.png =600x300)
+<img src="https://i.imgur.com/T59Ttdg.png" alt="first" height="300" width="600" >
 
 
 當使用者傳送訊息給LINE Bot時，會觸發MessageEvent事件，此處僅處理收到的文字訊息，「message = TextMessage」表示收到的是文字訊息，也就是說收到的是文字訊息才會由此路由處理，參數event包含傳回的各項訊息，例如建立的函式名稱為handle_message
