@@ -29,8 +29,8 @@ pip install -r requirements.txt
 * Line message API
 ## line-bot介面
 
-![](https://i.imgur.com/EO0UiEP.jpg =300x500)
-![](https://i.imgur.com/4IdWGCL.jpg =300x500)
+![](https://i.imgur.com/EO0UiEP.jpg )
+![](https://i.imgur.com/4IdWGCL.jpg )
 
 
 ## stock.py功能講解
