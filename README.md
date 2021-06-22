@@ -36,15 +36,14 @@ https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
 ## 使用方法
 - 使用者點擊左方圖文選單，會跑出查詢股價，系統回傳請輸入股票代號
 - 使用者輸入上市股價代號，系統回傳該股票這個月的目前的日期與股價，並回傳進兩個月的K棒圖
-<p>
-
-<img src="https://i.imgur.com/SFgqqvH.gif" alt="123" height="500" width="300"></div>
-<img src="https://i.imgur.com/du5nkgA.gif" alt="123" height="500" width="300">
-</p>
+<div style="float:left">
+<img src="https://user-images.githubusercontent.com/46188299/122892122-b4092800-d377-11eb-9279-1873e4216a61.gif"  alt="123" height="500" width="300">
+<img src="https://user-images.githubusercontent.com/46188299/122892278-d438e700-d377-11eb-977a-92240a95a248.gif"  alt="123" height="500" width="300">
+</div>
 
 - 使用者點擊右方圖文選單，會跑出最新FBX航運價格與近十天價格折線圖
 <p>
-<img src="https://i.imgur.com/6wqIBob.gif" alt="123" height="500" width="300">
+<img src="https://i.imgur.com/6wqIBob.gif"  alt="123" height="500" width="300">
 </p>
 
 ## 使用的API介紹
@@ -122,9 +121,7 @@ def callback():
 ```
 
 
-
-![](https://i.imgur.com/T59Ttdg.png =600x300)
-
+<img src="https://i.imgur.com/T59Ttdg.png" alt="error" height="300" width="600">
 
 當使用者傳送訊息給LINE Bot時，會觸發MessageEvent事件，此處僅處理收到的文字訊息，「message = TextMessage」表示收到的是文字訊息，也就是說收到的是文字訊息才會由此路由處理，參數event包含傳回的各項訊息，例如建立的函式名稱為handle_message
 ```
