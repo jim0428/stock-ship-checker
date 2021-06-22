@@ -341,3 +341,6 @@ def save_img(url,select,Pass):
 - nginx: https://www.opencli.com/linux/nginx-config-reverse-proxy 
 - linux tmp folder :https://blog.bestlong.idv.tw/2014/01/28/1125
 - 股票號碼對照:http://moneydj.emega.com.tw/js/StockTable.htm
+- plotly 畫K棒:https://tn00343140a.pixnet.net/blog/post/278079948-%E7%94%A8plotly%E7%95%AB%E5%87%BAk%E7%B7%9A%E5%9C%96
+- pandas去除/xa0:https://stackoverflow.com/questions/55442727/remove-unicode-xa0-from-pandas-column
+- pandas dataframe:https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
