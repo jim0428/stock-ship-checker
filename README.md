@@ -14,7 +14,7 @@ stock-ship-checker
 
 - 套件都放在requirement.txt，可用以下指令下載
 ```
-pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 ```
 ## 如何架設
 
