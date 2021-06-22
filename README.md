@@ -89,11 +89,6 @@ if __name__=="__main__":
 ```
 
 ### 2.line-bot連接
-
-
-關於如何建立line-bot及圖文選單請參考我寫的這篇文章:
-[Google](https://www.google.com.tw)
-
 設定Channel secret及
 Channel access token
 
