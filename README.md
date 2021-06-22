@@ -17,6 +17,14 @@ stock-ship-checker
 pip install -r requirements.txt
 ```
 ## 如何架設
+
+由於此程式需要使用line-bot，關於line-bot的架設請參考我寫的這篇: https://hackmd.io/s_WRq6dJTsmak8wrI9WvvA
+
+Line-bot與Flask做連接請參考這篇:
+https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
+
+看完以上兩個連結便可完成架設
+
 ## line-bot介面
 
 <p>
@@ -26,6 +34,17 @@ pip install -r requirements.txt
 
 
 ## 使用方法
+- 使用者點擊左方圖文選單，會跑出查詢股價，系統回傳請輸入股票代號
+- 使用者輸入上市股價代號，系統回傳該股票這個月的目前的日期與股價，並回傳進兩個月的K棒圖
+<p>
+<img stc="https://i.imgur.com/SFgqqvH.gif" alt="123" height="500" width="300">
+<img stc="https://i.imgur.com/du5nkgA.gif" alt="123" height="500" width="300">
+</p>
+
+- 使用者點擊右方圖文選單，會跑出最新FBX航運價格與近十天價格折線圖
+<p>
+<img stc="https://i.imgur.com/6wqIBob.gif" alt="123" height="500" width="300">
+</p>
 
 ## 使用的API介紹
 
@@ -314,15 +333,7 @@ def save_img(url,select,Pass):
     elif select == "stock":
         return f'https://ar3s.dev/stock/getpic?file=candle.png'
 ```
-User flows
----
-```sequence
-使用者->linebot: Hello linebot, how are you?
-Note right of linebot: line-bot thinks
-linebot-->使用者: I am good thanks!
-Note left of 使用者: 使用者 responds
-使用者->linebot: Where have you been?
-```
+
 
 
 ## Reference
