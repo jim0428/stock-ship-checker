@@ -151,13 +151,13 @@ if mtext == "查詢股價":
 #### 3.3 使用者點擊右方圖文選單
 會先對該api進行get請求，請把結果轉為json格式，由於我們需要的資料在indexPoints裡，所以取["indexPoints"]放入fbx變數裡
 
-第6行``save_img``能取得近十天航運價格的摺線圖網址，後面會有詳細說明
+``save_img``能取得近十天航運價格的摺線圖網址，後面會有詳細說明
 
-10-14行處理完之後可以得到當天最新航運價格與前一天差多少，ex:2021/06/21 6218點 相較昨日上升:34.1點
+資料處理完之後可以得到當天最新航運價格與前一天差多少，ex:2021/06/21 6218點 相較昨日上升:34.1點
 
-16-19行把此資訊傳送給使用者
+使用reply_message將資訊傳送給使用者
 
-20-26行是使用push_message這個function，因為line-bot要回傳兩個訊息以上的話不能再選擇``reply_message``，這邊我選擇``push_message``，並且使用`ImageSendMessage`，傳送圖檔
+最後使用push_message這個function，因為line-bot要回傳兩個訊息以上的話不能再選擇``reply_message``，這邊我選擇``push_message``，並且使用`ImageSendMessage`，傳送圖檔
 
 ```python
 elif mtext == "FBX航運價格":
@@ -193,15 +193,15 @@ elif mtext == "FBX航運價格":
 #### 3.4 輸入上市股票代號
 使用者輸入文字之後，先使用Regular Expression判斷只有數字才能進行操作
 
-接著在3-10行對台灣證券交易所API取得該股票的股價，所以如果這時候使用者輸入錯誤的股票代號，就會進到38-39行的except輸出查無此股票
+接著對台灣證券交易所API取得該股票的股價，所以如果這時候使用者輸入錯誤的股票代號，就會進到except輸出錯誤，查無此股票
 
-12-15行回傳股價資訊
+成功的話使用reply_message回傳股價資訊
 
-17-25行進行近兩個月份的K棒，month_k_plot這個function後面會介紹
+接下來進行近兩個月份的K棒，``month_k_plot``這個function後面會介紹
 
-27行取得剛剛繪製的K棒網址
+im_url取得剛剛繪製的K棒網址
 
-29-37行傳送給使用者K棒圖片
+最後使用ImageSendMessage傳送給使用者K棒圖片
  
 ```python
 elif re.match(r'^[0-9]+$',mtext):
@@ -248,18 +248,18 @@ elif re.match(r'^[0-9]+$',mtext):
 
     - ``get_stock_data(start_year, start_month, end_year, end_month,No):start_year=起始年，start_month=起始月，end_year=結束年,end_month=結束月,No=股票代號``
 
-        2-4行傳入的開始年月與結束年月算出其範圍並取該日的第一天，ex:get_stock_data(2021,04,2021,06) => month_list = [2021/04/01,2021/05/01,2021/06/01]
+        一開始傳入的開始年月與結束年月算出其範圍並取該日的第一天，ex:get_stock_data(2021,04,2021,06) => month_list = [2021/04/01,2021/05/01,2021/06/01]
 這是為了符合API回傳的資訊
 
-        5-17行是對API進行request並剃除我們不需要的資料，並繪製成dataframe的形式，以利後面plotly繪圖套件的格式
+        接下來是對API進行request並剃除我們不需要的資料，並繪製成dataframe的形式，以利後面plotly繪圖套件的格式
         
     - ``month_k_plot(start_year, start_month, end_year, end_month,No):start_year=起始年，start_month=起始月，end_year=結束年,end_month=結束月,No=股票代號``
     
-        23行先取得近兩個月資料的dataframe形式放入stock
+        一開始先取得近兩個月資料的dataframe形式放入stock
         
-        25行將stock使用plotly進行K棒的繪製，由於參數則填入dataframe的欄位，以及K棒顏色調成台灣人習慣的模式
+        接著將stock使用plotly進行K棒的繪製，由於參數則填入dataframe的欄位，以及K棒顏色調成台灣人習慣的模式
         
-        34行將圖片存入tmp資料夾內，以供存取
+        最後將圖片存入tmp資料夾內，以供存取
 ```python
 def get_stock_data(start_year, start_month, end_year, end_month,No):
     start_date = str(date(start_year, start_month, 1))
@@ -301,12 +301,12 @@ def month_k_plot(start_year, start_month, end_year, end_month,No):
 ### 4.如何傳照片講解
 ``save_img(url,select,Pass): url=照片儲存位置，select看要存取K棒圖片或是航運價格圖片，Pass=航運價格資料``
     
-12,20行先判斷為航運價格或是股價K棒，如果是航運價格的話就取近10天的資訊繪製成圖片放入tmp資料夾，而在19行要回傳的是呼叫自己的API `https://ar3s.dev/stock/getpic?file=`取得照片，因為在line-bot的ImageSendMessage(
+if先判斷為航運價格或是股價K棒，如果是航運價格的話就取近10天的資訊繪製成圖片放入tmp資料夾，而在return的部分要回傳的是呼叫自己的API `https://ar3s.dev/stock/getpic?file=`取得照片，因為在line-bot的ImageSendMessage(
                 original_content_url=im_url,
                 preview_image_url=im_url
             )，im_url限定是https開頭的網址，所以在這裡使用了這個方法完成此目的，而股價K棒也是同概念，不另作說明
 
-1-7行是判斷是否傳來的資訊為fbx.png or candle.png，是的話就使用flask內建的``send_from_directory``function回傳整張png圖檔，若不是的話則回傳錯誤訊息
+而在get-pic路由內，一開始先判斷是否傳來的資訊為fbx.png or candle.png，是的話就使用flask內建的``send_from_directory``function回傳整張png圖檔，若不是的話則回傳錯誤訊息
 ```python
 @app.route("/getpic",methods=['GET'])
 def getpic():
