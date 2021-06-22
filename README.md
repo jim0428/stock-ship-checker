@@ -329,3 +329,15 @@ def save_img(url,select,Pass):
 
 
 ## Reference
+- 台灣證券交易所:
+    https://www.twse.com.tw/exchangeReport/STOCK_DAY_AVG?response=json&stockNo= 
+- 台灣證券交易所:https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=&stockNo=
+
+- FBX:https://fbx.freightos.com/api/lane/FBX?isDaily=true
+- Flask架設API:https://ithelp.ithome.com.tw/articles/10251579
+- flask static folder:https://medium.com/seaniap/python-web-flask-%E4%BD%BF%E7%94%A8%E9%9D%9C%E6%85%8B%E6%AA%94%E6%A1%88-ac00e863a470
+- line-bot教學: https://ithelp.ithome.com.tw/articles/10229943
+- Flask教學: https://www.youtube.com/watch?v=dYulda6wEWA
+- nginx: https://www.opencli.com/linux/nginx-config-reverse-proxy 
+- linux tmp folder :https://blog.bestlong.idv.tw/2014/01/28/1125
+- 股票號碼對照:http://moneydj.emega.com.tw/js/StockTable.htm
