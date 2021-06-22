@@ -118,7 +118,7 @@ def callback():
 <img src="https://i.imgur.com/T59Ttdg.png" alt="error" height="300" width="600">
 
 當使用者傳送訊息給LINE Bot時，會觸發MessageEvent事件，此處僅處理收到的文字訊息，「message = TextMessage」表示收到的是文字訊息，也就是說收到的是文字訊息才會由此路由處理，參數event包含傳回的各項訊息，例如建立的函式名稱為handle_message
-```
+```python
 @handler.add(MessageEvent,message=TextMessage)
 def handle_message(event):
     ...
