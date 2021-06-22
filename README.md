@@ -68,7 +68,7 @@ https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
 ### 1.Flask架設
 建立Flask物件，並且設定靜態資料夾，用來存放line-bot要回傳的圖片，而所選擇的資料是linux環境內建的tmp，如果用heroku也是同樣概念，結構如下
 
-```python=
+```python
 app = Flask(__name__, static_folder='/tmp/')
 ```
 
@@ -77,13 +77,13 @@ app = Flask(__name__, static_folder='/tmp/')
 
 
 建立測試路由，以供測試
-```python=
+```python
 @app.route("/")
 def test():
     return "Hello"
 ```
 開啟flask路由，port開在7777
-```python=
+```python
 if __name__=="__main__":
     app.run(port=7777)
 ```
@@ -97,7 +97,7 @@ if __name__=="__main__":
 設定Channel secret及
 Channel access token
 
-```python=
+```python
 #請填入自己的line-bot Chennel access token以及Channel secret 
 line_bot_api = LineBotApi('聊天機器人的 Chennel access token')
 
@@ -107,7 +107,7 @@ handler = WebhookHandler('聊天機器人的 Channel secret')
 
 建立callback路由，
 檢查 LINE Bot的資料是否正確，藉由此路由與將line-bot與flask server做連接
-```python=
+```python
 @app.route("/callback",methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -131,13 +131,13 @@ def handle_message(event):
 
 ### 3.利用Message API回傳股價和航運報價
 #### 3.1 取得使用者傳送的文字於mtext變數中
-```python=
+```python
 mtext = event.message.text
 ```
 
 #### 3.2 使用者點擊左方圖文選單
 系統藉由 reply_message 將"請輸入股價代號"回傳給使用者
-```python=
+```python
 if mtext == "查詢股價":
     try:
         message = TextSendMessage(
@@ -159,7 +159,7 @@ if mtext == "查詢股價":
 
 20-26行是使用push_message這個function，因為line-bot要回傳兩個訊息以上的話不能再選擇``reply_message``，這邊我選擇``push_message``，並且使用`ImageSendMessage`，傳送圖檔
 
-```python=
+```python
 elif mtext == "FBX航運價格":
     try:
         response = requests.get('https://fbx.freightos.com/api/lane/FBX?isDaily=true')
@@ -203,7 +203,7 @@ elif mtext == "FBX航運價格":
 
 29-37行傳送給使用者K棒圖片
  
-```python=
+```python
 elif re.match(r'^[0-9]+$',mtext):
     try:
         response = requests.get('https://www.twse.com.tw/exchangeReport/STOCK_DAY_AVG?response=json&stockNo={}'.format(str(mtext)))
@@ -260,7 +260,7 @@ elif re.match(r'^[0-9]+$',mtext):
         25行將stock使用plotly進行K棒的繪製，由於參數則填入dataframe的欄位，以及K棒顏色調成台灣人習慣的模式
         
         34行將圖片存入tmp資料夾內，以供存取
-```python=
+```python
 def get_stock_data(start_year, start_month, end_year, end_month,No):
     start_date = str(date(start_year, start_month, 1))
     end_date = str(date(end_year, end_month, 1))
@@ -307,7 +307,7 @@ def month_k_plot(start_year, start_month, end_year, end_month,No):
             )，im_url限定是https開頭的網址，所以在這裡使用了這個方法完成此目的，而股價K棒也是同概念，不另作說明
 
 1-7行是判斷是否傳來的資訊為fbx.png or candle.png，是的話就使用flask內建的``send_from_directory``function回傳整張png圖檔，若不是的話則回傳錯誤訊息
-```python=
+```python
 @app.route("/getpic",methods=['GET'])
 def getpic():
     filee = request.args.get('file')
