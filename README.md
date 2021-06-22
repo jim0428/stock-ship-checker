@@ -38,9 +38,8 @@ https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
 - 使用者輸入上市股價代號，系統回傳該股票這個月的目前的日期與股價，並回傳進兩個月的K棒圖
 <div style="float:left">
 <img src="https://user-images.githubusercontent.com/46188299/122892122-b4092800-d377-11eb-9279-1873e4216a61.gif"  alt="123" height="500" width="300">
-<img src="https://user-images.githubusercontent.com/46188299/122892278-d438e700-d377-11eb-977a-92240a95a248.gif"  alt="123" height="500" width="300">
+<img src="https://user-images.githubusercontent.com/46188299/122892744-3d205f00-d378-11eb-8048-f172e3591738.gif"  alt="123" height="500" width="300">
 </div>
-
 - 使用者點擊右方圖文選單，會跑出最新FBX航運價格與近十天價格折線圖
 <p>
 <img src="https://i.imgur.com/6wqIBob.gif"  alt="123" height="500" width="300">
