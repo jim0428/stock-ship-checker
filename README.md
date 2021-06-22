@@ -37,13 +37,14 @@ https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
 - 使用者點擊左方圖文選單，會跑出查詢股價，系統回傳請輸入股票代號
 - 使用者輸入上市股價代號，系統回傳該股票這個月的目前的日期與股價，並回傳進兩個月的K棒圖
 <p>
-<img stc="https://i.imgur.com/SFgqqvH.gif" alt="123" height="500" width="300">
-<img stc="https://i.imgur.com/du5nkgA.gif" alt="123" height="500" width="300">
+
+<img src="https://i.imgur.com/SFgqqvH.gif" alt="123" height="500" width="300"></div>
+<img src="https://i.imgur.com/du5nkgA.gif" alt="123" height="500" width="300">
 </p>
 
 - 使用者點擊右方圖文選單，會跑出最新FBX航運價格與近十天價格折線圖
 <p>
-<img stc="https://i.imgur.com/6wqIBob.gif" alt="123" height="500" width="300">
+<img src="https://i.imgur.com/6wqIBob.gif" alt="123" height="500" width="300">
 </p>
 
 ## 使用的API介紹
