@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Line-bot與Flask做連接請參考這篇:
 https://hackmd.io/LR1MrUUgTR2y44Ys9yTAWw#
 
-看完以上兩個連結便可完成架設
+看完以上兩個連結變可完成架設
 
 ## line-bot介面
 
